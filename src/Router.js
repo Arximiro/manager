@@ -21,7 +21,6 @@ const RouterComponent = () => {
             onRight={() => Actions.employeeCreate()}
             key="employeeList"
             component={EmployeeList}
-            titleStyle={{ alignSelf: 'center' }}
             title="Employees"
             initial
           />
