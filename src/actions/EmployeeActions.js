@@ -52,5 +52,15 @@ export const employeeSave = ({ name, phone, shift, uid }) => {
   };
 };
 
+export const employeeDelete = ({ uid }) => {
+  const { currentUser } = firebase.auth();
+
+  return async () => {
+    const reference = await firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`);
+    reference.remove();
+    Actions.pop();
+  };
+};
+
 // snapshot is an object that describes the date in the queried location.
 // to get access to the actual data snapshot.val must be referenced.  (snapshot can be named whatever obviously)
