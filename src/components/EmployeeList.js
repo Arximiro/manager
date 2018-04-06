@@ -8,22 +8,14 @@ import ListItem from './ListItem';
 
 class EmployeeList extends Component {
   componentDidMount() {
-    this.createDataSource();
-  }
-
-  createDataSource() {
     this.props.employeesFetch();
-  }
-
-  renderRow(employee) {
-    return <ListItem employee={employee} />;
   }
 
   render() {
     return (
       <FlatList
         data={this.props.employees}
-        renderItem={this.renderRow}
+        renderItem={e => <ListItem employee={e} />}
         keyExtractor={employee => employee.uid}
       />
     );
